@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" 
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" 
+      crossorigin="anonymous">
+    </script>
+    <form id="login">
+        <label for="fname">Please login</label><br>
+        <input type="text" id="myLogin" name="login" value=""><br>
+        <input type="submit" id="submit_login" value="Submit" onclick="setLogin()">
+    </form><br><br>
+    <a href="http://localhost:3000/index.html">Back to Motus</a>
+
+    <script>
+        function setLogin(){
+            login = $("#myLogin").val();
+            localStorage.setItem("name", login);
+            console.log(login);
+            document.location ="/index.html";
+        }
+
+    </script>
+</body>
+</html>

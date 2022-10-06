@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            table,
+            th,
+            td {
+                padding: 10px;
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+
+
+  <body>
+    <script TYPE="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"
+    crossorigin="anonymous">
+    </script>
+
+
+    <br><a href="http://localhost:3000/index.html">Retour au Motus</a><br><br>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Info</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Nb Word(s) found</td>
+                <td><span id="myScore"></span></td>
+            </tr>
+            <tr>
+                <td>Average try</td>
+                <td id="try"></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <script>
+
+        // Read data
+        var myScore = localStorage.getItem('myScore');
+        if (myScore=='')
+            $("#myScore").html(0);
+        else
+            $("#myScore").html(myScore);
+
+    </script>
+    
+  </body>
+</html>

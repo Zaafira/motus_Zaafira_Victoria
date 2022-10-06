@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" 
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" 
+      crossorigin="anonymous">
+    </script>
+
+    <h2> Player : <span id="myName"></span> </h2>
+    <form id="'proposition'">
+      <label for="fname">Your guess :</label><br>
+      <input type="text" id="response" name="response" value=""><br>
+      <input type="submit" id="submit" value="Submit" onClick="compare()">
+    </form>
+    <span id="progress"></span>
+
+    <a href="http://localhost:3000/score.html">Score</a>
+
+    <script>
+      if(localStorage.getItem("myScore")===null){
+        localStorage.setItem("myScore", "");
+      }
+
+        word_of_today = "";
+        $.get("/word", (data)=> {word_of_today = data})
+
+        document.getElementById("submit").addEventListener("click", function(event){
+            event.preventDefault()
+            });
+        number_of_letters = word_of_today.length;
+
+        function compare(){
+            answer = $("#response").val();
+            console.log(answer+"-"+word_of_today)
+            //modification du score
+            score = localStorage.getItem('myScore');
+            if(score==""){
+                localStorage.setItem('myScore', 1);
+            }
+            else{
+            newScore = parseInt(score)+1;
+            localStorage.setItem('myScore', newScore);
+            }
+            if(answer== word_of_today){
+                alert(`ok ${word_of_today}`);
+            }
+            else{
+                alert("pas le bon mot");
+                $("#response").val('');
+            }
+            return false;
+        }
+        $("#response").focus()
+        if(localStorage.getItem("name")===null){
+          localStorage.setItem("name", "");
+      }
+        var name = localStorage.getItem("name");
+        if (name=='')
+          document.location = "/login.html"; 
+        else
+          $("#myName").html(name);
+      </script>
+  </body>
+</html>
