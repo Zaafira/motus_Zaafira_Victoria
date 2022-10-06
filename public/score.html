@@ -36,22 +36,26 @@
             </tr>
             <tr>
                 <td>Average try</td>
-                <td id="try"></td>
+                <td><span id="myAverage"></span></td>
             </tr>
         </tbody>
     </table>
 
 
     <script>
-
-        //test
-        // Read data
-        var myScore = localStorage.getItem('myScore');
+        // Recupérer le score
+        myScore = localStorage.getItem('myScore');
         if (myScore=='')
             $("#myScore").html(0);
         else
             $("#myScore").html(myScore);
 
+        // Récupérer le nb d'essai moyen
+        myAverage = localStorage.getItem('myAverage');
+        if (myAverage=='')
+            $("#myAverage").html(0);
+        else
+            $("#myAverage").html(myAverage);
     </script>
     
   </body>
